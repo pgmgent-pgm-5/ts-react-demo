@@ -1,26 +1,39 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import './App.css'
+import {
+	Button,
+	Footer,
+	Head,
+	Input,
+	ProductHead,
+	ShowHideButton,
+} from './Components'
+import { AppCtx } from './Contexts'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	return (
+		<AppCtx.Provider
+			value={{
+				name: 'Using React Context in a Typescript App',
+			}}
+		>
+			<div className='App'>
+				<Head title='Hello!' />
+				<ProductHead product={{ name: 'Star Wars - A New Hope', price: 15 }} />
+				<Button
+					onClick={e => {
+						e.preventDefault()
+						// console.log('Clicking')
+					}}
+				>
+					Hello World
+				</Button>
+				<Input />
+				<ShowHideButton />
+				<Footer />
+			</div>
+		</AppCtx.Provider>
+	)
 }
 
-export default App;
+export default App
